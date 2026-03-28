@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# 1. 全局应用设置 (App Info)
+# ---------------------------------------------------------------------------
+# [必需] 应用的唯一客户端 ID,在合作伙伴仪表板中创建应用时生成。
+# client_id = ""
+# client_secret = ""
+
+# [必需] 应用的名称,将显示在 Shopify 后台和应用商店中。
+# name = "Token池-001"
+# handle = "fix-iterate-store"
+
+# [必需] 应用的入口 URL。当商家点击应用时，他们将被重定向到此地址。
+application_url = "https://k8s.fix-iterate.uk/shopify"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2026-04"
+
+# ---------------------------------------------------------------------------
+# 2. 认证 (Authentication)
+# ---------------------------------------------------------------------------
+# [auth] 仍是 Shopify CLI 配置中的必填项，但当前 managed install 不再依赖 callback。
+[auth]
+  redirect_urls = [ "https://k8s.fix-iterate.uk/shopify" ]
+
+# ---------------------------------------------------------------------------
+# 3. 访问范围 (Access Scopes)
+# ---------------------------------------------------------------------------
+[access_scopes]
+  # [必需] 应用安装时请求的权限范围。最佳实践是仅请求应用核心功能所必需的最小权限范围。
+  scopes = "write_products, write_inventory, write_orders, write_customers, write_draft_orders, write_payment_terms, write_returns, write_price_rules, write_discounts, write_marketing_events, write_shipping, write_locations, write_assigned_fulfillment_orders, write_merchant_managed_fulfillment_orders, write_third_party_fulfillment_orders, write_fulfillments, write_delivery_customizations, write_fulfillment_constraint_rules, write_themes, write_content, write_files, write_online_store_navigation, write_online_store_pages, write_metaobject_definitions, write_metaobjects, write_reports, read_analytics, read_audit_events, write_resource_feedbacks, customer_write_customers, customer_write_orders, write_customer_merge, write_customer_data_erasure, unauthenticated_write_checkouts, unauthenticated_write_customers, unauthenticated_read_product_listings, unauthenticated_read_content, read_markets, read_cash_tracking, read_customer_events, read_all_cart_transforms, write_cart_transforms, write_publications, write_product_listings"
+
+# ---------------------------------------------------------------------------
+# 5. 构建和开发设置 (Build & Development)
+# ---------------------------------------------------------------------------
+[build]
+  # [可选] 在 `dev` 期间是否自动更新合作伙伴仪表板中的应用 URL。
+  automatically_update_urls_on_dev = true
+  # [可选] 用于 `dev` 和预览的开发商店的 URL。
+  dev_store_url = "linnzh-au.myshopify.com"

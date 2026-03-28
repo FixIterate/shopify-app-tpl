@@ -15,15 +15,6 @@ coverage
 logs
 *.log
 
-# extensions build output
-extensions/*/build
-extensions/*/dist
-
-# lock files
-
-
-
-
 # Ignore shopify files created during app dev
 .shopify/*
 .shopify.lock

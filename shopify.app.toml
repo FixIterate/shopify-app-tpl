@@ -17,9 +17,6 @@ embedded = true
 automatically_update_urls_on_dev = true
 include_config_on_deploy = true
 
-[webhooks]
-api_version = "2026-04"
-
 # ---------------------------------------------------------------------------
 # 2. 认证 (Authentication)
 # ---------------------------------------------------------------------------
@@ -34,11 +31,5 @@ api_version = "2026-04"
   # [必需] 应用安装时请求的权限范围。最佳实践是仅请求应用核心功能所必需的最小权限范围。
   scopes = "write_products, write_inventory, write_orders, write_customers, write_draft_orders, write_payment_terms, write_returns, write_price_rules, write_discounts, write_marketing_events, write_shipping, write_locations, write_assigned_fulfillment_orders, write_merchant_managed_fulfillment_orders, write_third_party_fulfillment_orders, write_fulfillments, write_delivery_customizations, write_fulfillment_constraint_rules, write_themes, write_content, write_files, write_online_store_navigation, write_online_store_pages, write_metaobject_definitions, write_metaobjects, write_reports, read_analytics, read_audit_events, write_resource_feedbacks, customer_write_customers, customer_write_orders, write_customer_merge, write_customer_data_erasure, unauthenticated_write_checkouts, unauthenticated_write_customers, unauthenticated_read_product_listings, unauthenticated_read_content, read_markets, read_cash_tracking, read_customer_events, read_all_cart_transforms, write_cart_transforms, write_publications, write_product_listings"
 
-# ---------------------------------------------------------------------------
-# 5. 构建和开发设置 (Build & Development)
-# ---------------------------------------------------------------------------
-[build]
-  # [可选] 在 `dev` 期间是否自动更新合作伙伴仪表板中的应用 URL。
-  automatically_update_urls_on_dev = true
-  # [可选] 用于 `dev` 和预览的开发商店的 URL。
-  dev_store_url = "linnzh-au.myshopify.com"
+[webhooks]
+api_version = "2026-04"

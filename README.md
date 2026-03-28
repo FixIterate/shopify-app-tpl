@@ -75,3 +75,11 @@ shopify app deploy --version v1.0.1.260328 --no-release
 # 发布 Shopify APP，可指定历史版本进行生效
 shopify app release --version v1.0.0.260328
 ```
+
+### 快速获取 APP 的安装 URL
+
+通过读取 `.env` 文件中的环境变量以及传入的 Shopify 店铺域名，并解析 shopify.app.toml 文件中的 `auth.redirect_urls[0]` 重定向路径，生成 APP 安装 URL。
+
+```bash
+bun run oauth linnzh-au.myshopify.com
+```

@@ -1,32 +1,33 @@
-# [必需] 应用的唯一客户端 ID
-client_id = ""
-
-# [必需] 应用的名称
-name = ""
-handle = ""
+client_id = "4dda06ea56288e1793dce4f41e9ee0a1"
+name = "fix-iterate-001"
+embedded = true
 
 # [必需] 应用的入口 URL。当商家点击应用时，他们将被重定向到此地址。
 application_url = "https://k8s.fix-iterate.uk/shopify"
-embedded = true
-
-[build]
-automatically_update_urls_on_dev = true
-
 [auth]
-  redirect_urls = [ "https://k8s.fix-iterate.uk/shopify" ]
+  redirect_urls = [ "https://k8s.fix-iterate.uk/shopify/token" ]
 
 [access_scopes]
   scopes = "write_products, write_inventory, write_orders, write_customers, write_draft_orders, write_payment_terms, write_returns, write_price_rules, write_discounts, write_marketing_events, write_shipping, write_locations, write_assigned_fulfillment_orders, write_merchant_managed_fulfillment_orders, write_third_party_fulfillment_orders, write_fulfillments, write_delivery_customizations, write_fulfillment_constraint_rules, write_themes, write_content, write_files, write_online_store_navigation, write_online_store_pages, write_metaobject_definitions, write_metaobjects, write_reports, read_analytics, read_audit_events, write_resource_feedbacks, customer_write_customers, customer_write_orders, write_customer_merge, write_customer_data_erasure, unauthenticated_write_checkouts, unauthenticated_write_customers, unauthenticated_read_product_listings, unauthenticated_read_content, read_markets, read_cash_tracking, read_customer_events, read_all_cart_transforms, write_cart_transforms, write_publications, write_product_listings"
+[build]
+  automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2026-04"
+# 订单等与 Customer 相关的 webhook 需要提交相关申请才允许发布
+[[webhooks.subscriptions]]
+  topics = [
+    "app/uninstalled", "shop/update",
+    "domains/create", "domains/update", "domains/destroy",
+    "locations/create", "locations/update", "locations/delete"
+  ]
+  uri = "/webhook"
 [[webhooks.subscriptions]]
   topics = [
     "orders/create", "orders/cancelled", "orders/fulfilled", "orders/paid", "orders/delete",
   ]
-  # 仅包含必要字段，减少 payload 大小
   include_fields = [
-      "admin_graphql_api_id", "id", "created_at", "updated_at", "financial_status", "fulfillment_status", "name", "order_number", "currency", "email"
+      "admin_graphql_api_id", "id", "created_at", "updated_at", "financial_status", "fulfillment_status", "name", "order_number", "currency",
   ]
   uri = "/webhook"
 
@@ -35,14 +36,5 @@ api_version = "2026-04"
   include_fields = [
       "admin_graphql_api_id", "id", "order_id", "created_at", "processed_at",
       "transactions.id", "transactions.created_at", "transactions.amount", "transactions.status", "transactions.admin_graphql_api_id",
-  ]
-  uri = "/webhook"
-
-# 其他通用事件
-[[webhooks.subscriptions]]
-  topics = [
-    "app/uninstalled", "shop/update",
-    "domains/create", "domains/update", "domains/destroy",
-    "locations/create", "locations/update", "locations/delete"
   ]
   uri = "/webhook"

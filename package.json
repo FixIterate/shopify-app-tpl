@@ -3,21 +3,20 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
+    "preinstall": "npx only-allow bun",
     "shopify": "shopify",
     "build": "shopify app build",
     "dev": "shopify app dev",
     "info": "shopify app info",
     "generate": "shopify app generate",
-    "deploy": "shopify app deploy"
+    "deploy": "shopify app deploy",
+    "oauth": "bun oauth.js"
   },
   "dependencies": {},
   "trustedDependencies": [
     "@shopify/plugin-cloudflare"
   ],
   "packageManager": "bun@1.2.0",
-  "scripts": {
-    "preinstall": "npx only-allow bun"
-  },
   "author": "linnzh",
   "private": true
 }

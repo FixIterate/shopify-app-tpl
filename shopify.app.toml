@@ -2,12 +2,12 @@
 # 1. 全局应用设置 (App Info)
 # ---------------------------------------------------------------------------
 # [必需] 应用的唯一客户端 ID,在合作伙伴仪表板中创建应用时生成。
-# client_id = ""
-# client_secret = ""
+client_id =
+client_secret =
 
 # [必需] 应用的名称,将显示在 Shopify 后台和应用商店中。
-# name = "Token池-001"
-# handle = "fix-iterate-store"
+name =
+handle =
 
 # [必需] 应用的入口 URL。当商家点击应用时，他们将被重定向到此地址。
 application_url = "https://k8s.fix-iterate.uk/shopify"

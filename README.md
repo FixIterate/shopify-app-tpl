@@ -1,7 +1,9 @@
 # Shopify APP 模板 - 最低配置
 
-模板文件参考`shopify.app.toml`，仅支持模板化 Scope、webhook 等内容，**无法固定 application_url、redirect_urls 等内容**，配置文件中的注释也会被移除。
+模板文件参考`shopify.app.toml`，仅支持模板化 Scope、webhook 等内容，**无法固定 application_url、redirect_urls、webhook 等内容**，配置文件中的注释也会被移除。
 可用于快速创建 Shopify APP，减少手动配置 Dev Dashboard 的流程。
+
+> 很不幸的是，webhook 配置也是不会被继承的。需要手动填写。
 
 默认占位：
 - application_url：https://shopify.dev/apps/default-app-home
@@ -15,13 +17,13 @@
 # 初始化一个 Shopify APP，并且选择 Bun 包管理器（减少重复包），并且指定 APP 模板（公开 GitHub 仓库链接，HTTPS）
 # -n 指定 APP 名称
 # -p 指定安装路径（不指定时默认在当前目录新建）
-shopify app init -d bun --template https://github.com/FixIterate/shopify-app-tpl.git -n fix-iterate-004 -p ./shopify
+shopify app init -d bun --template https://github.com/FixIterate/shopify-app-tpl.git -p ./shopify -n fix-iterate-001
 ```
 
 执行结果：
 
 ```bash
-$ shopify app init -d bun --template https://github.com/FixIterate/shopify-app-tpl.git -n fix-iterate-004 -p ./shopify
+$ shopify app init -d bun --template https://github.com/FixIterate/shopify-app-tpl.git -p ./shopify -n fix-iterate-001
 ?  Which organization is this work for?
 ✔  Linnzh - Dev
 
@@ -29,7 +31,7 @@ $ shopify app init -d bun --template https://github.com/FixIterate/shopify-app-t
 ✔  Yes, create it as a new app
 
 ?  App name:
-✔  fix-iterate-004
+✔  fix-iterate-001
 
 ╭─ info ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                                                                                                                   │
@@ -41,10 +43,10 @@ $ shopify app init -d bun --template https://github.com/FixIterate/shopify-app-t
 
 ╭─ success ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                                                                                                                   │
-│  fix-iterate-004 is ready for you to build!                                                                                                                                                       │
+│  fix-iterate-001 is ready for you to build!                                                                                                                                                       │
 │                                                                                                                                                                                                   │
 │  Next steps                                                                                                                                                                                       │
-│    • Run `cd fix-iterate-004`                                                                                                                                                                     │
+│    • Run `cd fix-iterate-001`                                                                                                                                                                     │
 │    • For extensions, run `shopify app generate extension`                                                                                                                                         │
 │    • To see your app, run `shopify app dev`                                                                                                                                                       │
 │                                                                                                                                                                                                   │

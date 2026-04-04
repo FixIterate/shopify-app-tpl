@@ -1,9 +1,11 @@
 # Shopify APP 模板 - 最低配置
 
-模板文件参考`shopify.app.toml`，仅支持模板化 Scope、webhook 等内容，**无法固定 application_url、redirect_urls、webhook 等内容**，配置文件中的注释也会被移除。
+模板文件参考`shopify.app.toml`，仅支持模板化 Scope、webhook 等内容，**无法固定 application_url、redirect_urls 等内容**，配置文件中的注释也会被移除。
 可用于快速创建 Shopify APP，减少手动配置 Dev Dashboard 的流程。
 
-> 很不幸的是，webhook 配置也是不会被继承的。需要手动填写。
+> Webhook 配置可以被继承，问题是涉及到 Customer 的 webhook 需要手动调整其为 Custom APP 并且申请数据访问权限后才能使用。
+
+> 始终建议显式定义`handle`，便于定位 APP 位置。该配置默认继承，不会自动更新。
 
 默认占位：
 - application_url：https://shopify.dev/apps/default-app-home

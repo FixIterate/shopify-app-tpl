@@ -1,5 +1,6 @@
 client_id = "4dda06ea56288e1793dce4f41e9ee0a1"
 name = "fix-iterate-001"
+handle = "fix-iterate-001"
 embedded = true
 
 # [必需] 应用的入口 URL。当商家点击应用时，他们将被重定向到此地址。
